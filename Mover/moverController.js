@@ -7,6 +7,12 @@ const secret = 'your-secret-key';
 //Movers Registration
 
 const registerMover=(req,res)=>{
+  const aadharRegex = /^[2-9][0-9]{3} [0-9]{4} [0-9]{4}$/; 
+
+
+  if (!req.body.aadhar || !aadharRegex.test(req.body.aadhar)) {
+      return res.status(400).json({ error: 'Invalid Aadhar number format' });
+  }
     const newMovers=new movers({
         name:req.body.name,
         regno:req.body.regno,
