@@ -11,8 +11,9 @@ const registerMover=(req,res)=>{
 
 
   if (!req.body.aadhar || !aadharRegex.test(req.body.aadhar)) {
-      return res.status(400).json({ error: 'Invalid Aadhar number format' });
-  }
+       res.json({status:401, msg: 'Invalid Aadhar number format' });
+  }else{
+
     const newMovers=new movers({
         name:req.body.name,
         regno:req.body.regno,
@@ -38,6 +39,7 @@ const registerMover=(req,res)=>{
             Error:err
         })
     })
+}
 }
 //Movers Registration -- finished
 //login

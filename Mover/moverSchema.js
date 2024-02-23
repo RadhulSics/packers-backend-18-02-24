@@ -37,7 +37,7 @@ const moverSchema=mongoose.Schema({
         required:true
     },
     aadhar:{
-        type:Number,
+        type:String,
         required:true
     }, rating:{
         type:Number,
