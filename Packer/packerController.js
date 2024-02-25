@@ -491,7 +491,7 @@ console.log(err);
 
 //view order details for Packer
 const viewOrderByPackerId=(req,res)=>{
-  luggage.find({pid:req.params.id}).exec()
+  luggage.find({pid:req.params.id}).populate('mid').exec()
   .then(data=>{
     
     res.json({

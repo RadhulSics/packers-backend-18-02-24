@@ -352,7 +352,7 @@ const addRating=(req,res)=>{
 
 //view order details for Movers
 const viewAcceptedOrderByMoverId=(req,res)=>{
-  luggage.find({mid:req.params.id,status:"approved"}).exec()
+  luggage.find({mid:req.params.id,status:"approved"}).populate('mid').exec()
   .then(data=>{
     
     res.json({

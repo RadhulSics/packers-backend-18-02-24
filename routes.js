@@ -3,6 +3,7 @@ const router=express.Router()
 const packercontroller=require('./Packer/packerController')
 const moverController=require('./Mover/moverController')
 const moverrate=require('./Mover/RateController')
+const complaint=require('./Packer/compController')
 
 
 //packer  routes
@@ -53,6 +54,11 @@ router.post('/showBookingReqs/:id',moverController.showBookingReqs) //view order
 router.post('/approveOrder/:id',moverController.approveOrder)//approve order for movers
 router.post('/rejectOrder/:id',moverController.rejectOrder)//reject  order for movers
 
+router.post('/registerComplaint',complaint.registerComplaint)//done
+router.post('/viewComplaintByMId/:id',complaint.viewComplaintByMId)//done
+router.post('/viewAllComplaint',complaint.viewAllComplaint)//done
 
+router.post('/addReview',moverController.addReview)//done
+router.post('/addRating',moverController.addRating)//done
 
 module.exports=router
